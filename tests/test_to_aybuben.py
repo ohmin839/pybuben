@@ -5,7 +5,7 @@ from pybuben.api import to_aybuben
 
 class ToAybubenTest(unittest.TestCase):
     @parameterized.expand([
-        # upper
+        # large alphabet
         ["A", "Ա"],
         ["B", "Բ"],
         ["G", "Գ"],
@@ -41,11 +41,11 @@ class ToAybubenTest(unittest.TestCase):
         ["C", "Ց"],
         ["W", "Ւ"],
         ["P'", "Փ"],
-        ["K'", "Ք"],
+        ["Q", "Ք"],
         ["O", "Օ"],
         ["F", "Ֆ"],
         ["U", "ՈՒ"],
-        # lower
+        # small alphabet
         ["a", "ա"],
         ["b", "բ"],
         ["g", "գ"],
@@ -81,7 +81,7 @@ class ToAybubenTest(unittest.TestCase):
         ["c", "ց"],
         ["w", "ւ"],
         ["p'", "փ"],
-        ["k'", "ք"],
+        ["q", "ք"],
         ["o", "օ"],
         ["f", "ֆ"],
         ["u", "ու"],
@@ -94,15 +94,24 @@ class ToAybubenTest(unittest.TestCase):
         # white space
         [" ", " "],
         ["\t", "\t"],
+        # new line
         ["\n", "\n"],
         ["\r\n", "\r\n"],
         # others
         ["$", "֏"],
         ["", ""],
     ])
-    def test_to_aybuben(self, text, expected):
+    def test_to_aybuben_characters(self, text, expected):
+        actual = to_aybuben(text)
+        self.assertEqual(expected, actual)
+
+    @parameterized.expand([
+        ["Barev.", "Բարև։"],
+    ])
+    def test_to_aybuben_wards(self, text, expected):
         actual = to_aybuben(text)
         self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()
+
