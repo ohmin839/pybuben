@@ -5,6 +5,7 @@ from pybuben.api import to_aybuben
 
 class ToAybubenTest(unittest.TestCase):
     @parameterized.expand([
+        ["", ""],
         # large alphabet
         ["A", "Ա"],
         ["B", "Բ"],
@@ -88,7 +89,14 @@ class ToAybubenTest(unittest.TestCase):
         ["ev", "և"],
         # punctuation
         [",", ","],
-        [".", "։"],
+        [".", "."],
+        ["`", "՝"],
+        [":", "։"],
+        ["-", "-"],
+        ["(", "("],
+        [")", ")"],
+        ["<<", "«"],
+        [">>", "»"],
         ["?", "՞"],
         ["!", "՜"],
         # white space
@@ -99,14 +107,15 @@ class ToAybubenTest(unittest.TestCase):
         ["\r\n", "\r\n"],
         # others
         ["$", "֏"],
-        ["", ""],
+        ["1234567890", "1234567890"],
     ])
     def test_to_aybuben_characters(self, text, expected):
         actual = to_aybuben(text)
         self.assertEqual(expected, actual)
 
     @parameterized.expand([
-        ["Barev.", "Բարև։"],
+        ["Barev:", "Բարև։"],
+        ["Voghjvowyn:", "Ողջույն։"],
     ])
     def test_to_aybuben_wards(self, text, expected):
         actual = to_aybuben(text)

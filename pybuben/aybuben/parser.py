@@ -37,9 +37,12 @@ class AybubenParser(Parser):
         "SMALL_U", "SMALL_V", "SMALL_W", "SMALL_X", "SMALL_Y",
         "SMALL_Z",
 
-        "COMMA", "PERIOD", "QUESTION", "EXCLAMATION",
+        "COMMA", "PERIOD", "BACKQUOTE", "COLON", "HYPHEN",
+        "L_PARENTHESIS", "R_PARENTHESIS",
+        "L_GUILLEMETS", "R_GUILLEMETS",
+        "QUESTION", "EXCLAMATION",
         "WHITESPACE", "NEWLINE",
-        "DOLLAR",
+        "DOLLAR", "DIGITS",
     )
     def letter(self, p):
         return p[0]
