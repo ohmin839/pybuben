@@ -157,7 +157,7 @@ class AybubenLexer(Lexer):
 
     @_("U")
     def LARGE_U(self, t):
-        t.value = "\u0548\u0552"
+        t.value = "\u0548\u0582"
         return t
 
     @_("Vo?")

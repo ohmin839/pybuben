@@ -45,7 +45,7 @@ class ToAybubenTest(unittest.TestCase):
         ["Q", "Ք"],
         ["O", "Օ"],
         ["F", "Ֆ"],
-        ["U", "ՈՒ"],
+        ["U", "Ու"],
         # small alphabet
         ["a", "ա"],
         ["b", "բ"],
