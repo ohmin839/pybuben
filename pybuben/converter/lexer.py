@@ -17,14 +17,15 @@ class AybubenLexer(Lexer):
         SMALL_U, SMALL_V, SMALL_W, SMALL_X, SMALL_Y,
         SMALL_Z,
 
+        DOLLAR, DIGITS,
 
         COMMA, PERIOD, BACKQUOTE, COLON, HYPHEN,
         L_PARENTHESIS, R_PARENTHESIS,
         L_GUILLEMETS, R_GUILLEMETS,
         QUESTION, EXCLAMATION,
-        WHITESPACE, NEWLINE,
+        SPACE, NEWLINE,
 
-        DOLLAR, DIGITS
+        ANYCHAR
     )
 
     @_("A")
@@ -365,6 +366,16 @@ class AybubenLexer(Lexer):
         return t
 
 
+    @_(r"\$")
+    def DOLLAR(self, t):
+        t.value = "\u058F"
+        return t
+
+    @_("[0-9]+")
+    def DIGITS(self, t):
+        return t
+
+
     @_(",")
     def COMMA(self, t):
         return t
@@ -410,14 +421,17 @@ class AybubenLexer(Lexer):
         t.value = "\u055E"
         return t
 
-    @_(r"!")
+    @_(r"!~?")
     def EXCLAMATION(self, t):
-        t.value = "\u055C"
+        if t.value.endswith("~"):
+            t.value = "\u055C"
+        else:
+            t.value = "\u055B"
         return t
 
 
     @_("[ \t]")
-    def WHITESPACE(self, t):
+    def SPACE(self, t):
         return t
 
     @_("\r?\n")
@@ -425,13 +439,8 @@ class AybubenLexer(Lexer):
         return t
 
 
-    @_(r"\$")
-    def DOLLAR(self, t):
-        t.value = "\u058F"
-        return t
-
-    @_("[0-9]+")
-    def DIGITS(self, t):
+    @_(".")
+    def ANYCHAR(self, t):
         return t
 
 

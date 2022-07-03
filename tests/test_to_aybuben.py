@@ -87,7 +87,9 @@ class ToAybubenTest(unittest.TestCase):
         ["f", "ֆ"],
         ["u", "ու"],
         ["ev", "և"],
-        # punctuation
+        # others
+        ["$", "֏"],
+        ["1234567890", "1234567890"],
         [",", ","],
         [".", "."],
         ["`", "՝"],
@@ -98,16 +100,13 @@ class ToAybubenTest(unittest.TestCase):
         ["<<", "«"],
         [">>", "»"],
         ["?", "՞"],
-        ["!", "՜"],
-        # white space
+        ["!", "՛"],
+        ["!~", "՜"],
         [" ", " "],
         ["\t", "\t"],
-        # new line
         ["\n", "\n"],
         ["\r\n", "\r\n"],
-        # others
-        ["$", "֏"],
-        ["1234567890", "1234567890"],
+        ["あ", "あ"],
     ])
     def test_to_aybuben_characters(self, text, expected):
         actual = to_aybuben(text)
