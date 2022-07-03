@@ -4,8 +4,8 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-parameterized = "*"
-sphinx = "*"
+parameterized = "0.8.1"
 
 [packages]
-sly = "*"
+sly = "0.4"
+orderd-set = "4.0.2"
