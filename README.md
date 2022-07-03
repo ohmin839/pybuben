@@ -159,6 +159,19 @@ print(result) # Բարև Ձեզ։
 | `\n` | `\n` |
 | `\r\n` | `\r\n` |
 
+## Collection 
+
+### pybubencoll
+A command to list words uniquely from text written in Armenian.
+
+```bash
+$ cat anthem_ascii.txt | pybubenconv | pybubencoll
+Մեր
+Հայրենիք
+ազատ
+անկախ
+...
+```
 ## Resources
 - Armenian Alphabet (https://en.wikipedia.org/wiki/Armenian_alphabet)
 - Romanization of Armenian (https://en.wikipedia.org/wiki/Romanization_of_Armenian)
