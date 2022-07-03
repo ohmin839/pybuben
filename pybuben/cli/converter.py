@@ -1,6 +1,6 @@
 import sys
 
-from .api import to_aybuben
+from ..api import to_aybuben
 
 def main():
     for line in sys.stdin:
