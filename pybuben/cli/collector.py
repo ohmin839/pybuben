@@ -1,13 +1,10 @@
 import sys
 from ordered_set import OrderedSet
 
-from ..api import into_hayeren_words
+from ..api import to_hayeren_word_set
 
 def main():
-    word_set = OrderedSet()
-    for line in sys.stdin:
-        words = into_hayeren_words(line)
-        word_set |= words
+    word_set = to_hayeren_word_set(sys.stdin)
     for word in word_set:
         print(word)
 
