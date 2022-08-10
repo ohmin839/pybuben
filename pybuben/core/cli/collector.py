@@ -1,5 +1,4 @@
 import sys
-from ordered_set import OrderedSet
 
 from ..api import to_hayeren_word_set
 

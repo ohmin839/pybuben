@@ -1,4 +1,5 @@
 from ..collector.lexer import HayerenWordLexer
+from ordered_set import OrderedSet
 
 def to_hayeren_words(text):
     lexer = HayerenWordLexer()
