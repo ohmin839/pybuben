@@ -1,0 +1,8 @@
+version: '1'
+services:
+  core:
+    build:
+      context: .
+      dockerfile: ./docker/core/Dockerfile
+    volumes:
+      - ./:/pybuben:rw
