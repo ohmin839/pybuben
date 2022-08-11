@@ -24,3 +24,6 @@ dev = [
 [project.scripts]
 pybubenconv = "pybuben.cli.converter:main"
 pybubencoll = "pybuben.cli.collector:main"
+
+[tool.setuptools.packages.find]
+include = ["pybuben"]
