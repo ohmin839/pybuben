@@ -1,7 +1,9 @@
+# Python
 __pycache__/
 *.egg-info/
 Pipfile.lock
 build/
+.ipynb_checkpoints
 
 # Docker
 .env
