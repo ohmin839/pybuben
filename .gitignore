@@ -8,3 +8,6 @@ build/
 # Docker
 .env
 docker-compose.override.yaml
+
+# Visual Studio Code
+.vscode/

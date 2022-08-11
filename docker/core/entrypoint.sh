@@ -1,7 +1,4 @@
 #!/bin/bash
 
-pip install -r requirements.txt
+pip install -e .[dev]
 python -m unittest discover tests
-
-# python setup.py develop --user
-# source ~/.profile

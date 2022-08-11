@@ -1,7 +1,7 @@
 import unittest
 from parameterized import parameterized
 
-from pybuben.core.api import to_aybuben
+from pybuben.api import to_aybuben
 
 class ToAybubenTest(unittest.TestCase):
     @parameterized.expand([
