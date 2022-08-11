@@ -1,8 +1,8 @@
 import unittest
 from parameterized import parameterized
-
-from pybuben.core.api import to_hayeren_word_set
 from ordered_set import OrderedSet
+
+from pybuben.api import to_hayeren_word_set
 
 class ToHayerenWords(unittest.TestCase):
     @parameterized.expand([

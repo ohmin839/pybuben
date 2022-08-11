@@ -1,7 +1,7 @@
 import unittest
 from parameterized import parameterized
 
-from pybuben.core.api import to_hayeren_words
+from pybuben.api import to_hayeren_words
 
 class ToHayerenWords(unittest.TestCase):
     @parameterized.expand([
