@@ -1,11 +1,10 @@
 # pybuben
-`pybuben` is a tool for writing text in Armenian alphabet(*Aybuben*).
-**CAUTION: This is a work in progress.**
+`pybuben` is a tiny tool for editing text in Armenian alphabet(*Aybuben*).
+This is a work in progress.
 
-## Requirements
-Pybuben heavily depends on [SLY](https://github.com/dabeaz/sly),
+This module heavily depends on [SLY](https://github.com/dabeaz/sly),
 which is 100% python implementation of the lex and yacc tools.
-SLY requires the use of Python 3.6 or greator(so does Pybuben).
+SLY requires the use of Python 3.6 or greator(so does `pybuben`).
 
 ## Conversion
 
@@ -13,7 +12,7 @@ SLY requires the use of Python 3.6 or greator(so does Pybuben).
 `pybubenconv` is a command to convert text from standard input in ASCII into Aybuben in Unicode.
 
 ```bash
-$ echo "Barev Dzez:" | pybubenconv
+$ echo 'Barev Dzez:' | pybubenconv
 Բարև Ձեզ։
 
 $ cat anthem_ascii.txt | pybubenconv
@@ -42,10 +41,10 @@ $ cat anthem_ascii.txt | pybubenconv
 You can also use `to_aybuben` function as API.
 
 ```python
-from pybuben.api import to_aybuben
+from pybuben.core.api import to_aybuben
 
-result = to_aybuben("Barev Dzez:")
-print(result) # Բարև Ձեզ։
+converted = to_aybuben('Barev Dzez:')
+print(converted) # Բարև Ձեզ։
 ```
 
 ### Conversion rules
@@ -161,8 +160,8 @@ print(result) # Բարև Ձեզ։
 
 ## Collection 
 
-### pybubencoll
-A command to list words uniquely from text written in Armenian.
+### CLI
+`pybubencoll` is a command to list words uniquely from text written in Armenian.
 
 ```bash
 $ cat anthem_ascii.txt | pybubenconv | pybubencoll
@@ -172,7 +171,40 @@ $ cat anthem_ascii.txt | pybubenconv | pybubencoll
 անկախ
 ...
 ```
-## Resources
+
+### API
+`to_hayeren_words` function extracts Armenian words from texts:
+```python
+from pybuben.core.api import to_aybuben
+from pybuben.core.api import to_hayeren_words
+
+converted = to_aybuben('Barev Dzez:')
+words = to_hayeren_words(converted)
+print(words) # ['Բարև', 'Ձեզ']
+```
+
+`to_hayeren_word_set` function is the same as `to_hayeren_words`
+except that it extracts words uniquely(case-sensitive).
+```python
+from pybuben.core.api import to_aybuben
+from pybuben.core.api import to_hayeren_word_set
+
+converted = to_aybuben('Barev Dzez, Barev dzez:')
+word_set = to_hayeren_word_set(converted)
+print(word_set) # OrderedSet(['Բարև', 'Ձեզ', 'ձեզ'])
+```
+
+`to_hayeren_word_dict` is the same as `to_hayeren_word_set` function
+except that its return values are dictionaries, not sets.
+```python
+from pybuben.core.api import to_aybuben
+from pybuben.core.api import to_hayeren_word_dict
+
+converted = to_aybuben('Barev Dzez, Barev dzez:')
+word_dict = to_hayeren_word_dict(converted)
+print(word_dict) # {'Բարև': 2, 'Ձեզ': 1, 'ձեզ': 1}
+```
+
+## External resources
 - Armenian Alphabet (https://en.wikipedia.org/wiki/Armenian_alphabet)
 - Romanization of Armenian (https://en.wikipedia.org/wiki/Romanization_of_Armenian)
-
