@@ -4,4 +4,4 @@ This is a work in progress.
 
 ## Components
 - [`pybuben-core`](./pybuben-core/README.md)
-- 
+- [`pybuben-deeplearning`](./pybuben-deeplearning/README.md)
