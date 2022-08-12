@@ -6,3 +6,12 @@ services:
       dockerfile: ./docker/core/Dockerfile
     volumes:
       - ./pybuben-core/:/pybuben-core:rw
+  deeplearning:
+    build:
+      context: .
+      dockerfile: ./docker/deeplearning/Dockerfile
+    ports:
+      - 8888:8888
+    volumes:
+      - ./pybuben-core/:/pybuben-core:rw
+      - ./pybuben-deeplearning/:/pybuben-deeplearning:rw
