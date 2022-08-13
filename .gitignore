@@ -3,7 +3,10 @@ __pycache__/
 *.egg-info/
 Pipfile.lock
 build/
+
+# Jupyter Notebook
 .ipynb_checkpoints
+.Trash-*/
 
 # Docker
 .env
