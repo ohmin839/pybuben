@@ -39,7 +39,7 @@ $ cat anthem_ascii.txt | pybubenconv
 You can also use `to_aybuben` function as API.
 
 ```python
-from pybuben.core.api import to_aybuben
+from pybuben.api import to_aybuben
 
 converted = to_aybuben('Barev Dzez:')
 print(converted) # Բարև Ձեզ։
@@ -173,8 +173,8 @@ $ cat anthem_ascii.txt | pybubenconv | pybubencoll
 ### API
 `to_hayeren_words` function extracts Armenian words from texts:
 ```python
-from pybuben.core.api import to_aybuben
-from pybuben.core.api import to_hayeren_words
+from pybuben.api import to_aybuben
+from pybuben.api import to_hayeren_words
 
 converted = to_aybuben('Barev Dzez:')
 words = to_hayeren_words(converted)
@@ -184,8 +184,8 @@ print(words) # ['Բարև', 'Ձեզ']
 `to_hayeren_word_set` function is the same as `to_hayeren_words`
 except that it extracts words uniquely(case-sensitive).
 ```python
-from pybuben.core.api import to_aybuben
-from pybuben.core.api import to_hayeren_word_set
+from pybuben.api import to_aybuben
+from pybuben.api import to_hayeren_word_set
 
 converted = to_aybuben('Barev Dzez, Barev dzez:')
 word_set = to_hayeren_word_set(converted)
@@ -195,8 +195,8 @@ print(word_set) # OrderedSet(['Բարև', 'Ձեզ', 'ձեզ'])
 `to_hayeren_word_dict` is the same as `to_hayeren_word_set` function
 except that its return values are dictionaries, not sets.
 ```python
-from pybuben.core.api import to_aybuben
-from pybuben.core.api import to_hayeren_word_dict
+from pybuben.api import to_aybuben
+from pybuben.api import to_hayeren_word_dict
 
 converted = to_aybuben('Barev Dzez, Barev dzez:')
 word_dict = to_hayeren_word_dict(converted)
