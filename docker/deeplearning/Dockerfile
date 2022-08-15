@@ -7,7 +7,7 @@ RUN groupadd -g $GID $USERNAME && \
     useradd -m -s /bin/bash -u $UID -g $GID $USERNAME
 
 RUN apt-get update && \
-    apt-get install -qy build-essential
+    apt-get install -qy build-essential graphviz
 
 COPY ./docker/deeplearning/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
